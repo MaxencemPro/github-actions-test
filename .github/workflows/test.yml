@@ -2,9 +2,11 @@
 name: "Verify DRY ticket"
 
 on:
-  push:
-    branchs:
-      - main
+  pull_request:
+    types: 
+      - closed
+    branches:
+      - 'main'
   
 jobs:
   test:
@@ -22,3 +24,7 @@ jobs:
           echo "${{ github.ref_name }}"
           echo "${{ github.event.pusher.name }}"
           echo "${{ github.event.pull_request.merged }}"
+
+      - name: Cat file content
+        run: |
+          cat .github/workflows/test.yml
