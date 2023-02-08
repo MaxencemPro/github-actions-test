@@ -18,3 +18,5 @@ jobs:
       - name: Verify pr name
         run: |
           echo "${{ github.event.pull_request }}"
+          echo "${{ github.ref_name }}"
+          echo "${{ github.event.pusher.name }}"
