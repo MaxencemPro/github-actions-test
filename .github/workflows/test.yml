@@ -10,7 +10,7 @@ on:
   
 jobs:
   test:
-    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'dry/')
+    if: github.event.pull_request.merged == true && (startsWith(github.head_ref, 'dry/') || contains(github.event.pull_request.title, "DRY-"))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
